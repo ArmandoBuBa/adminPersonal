@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <title>Adminsitracion de Personal</title>
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-light  fixed-top" style="background-color: #3E9647;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php" style=" font-family: 'Jaldi'; color: white;  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-size: 23px; ">Administracion de Personal</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="background-color: white">
+                <p style="margin-top: 5px; color: #3E9647;">Menu</p>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header" style="background-color: #3E9647">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-family: Jaldi; color: white; text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  font-size: 30px;">Admistracion de Personal</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" style="background-color: white;">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <div class="card" style="background-color: #3E9647">
+                            <a class="nav-link active" aria-current="page" href="login.php"><p style="color: aliceblue; text-align: center; font-size: 40px;">Home</p></a>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="container">
+            <div class="row">
+                <div class="col-md-5 mx-auto" style="margin-top: 200px;">
+                   <div class="card" style="background-color: withe ; border-color: black; border-radius: 5%;">
+                      <div class="card-body text-center"> 
+                        <div class="mx-auto" style=" width: 230px; height: 230px; border-radius: 50%; margin-top: -150px;">
+                            <img src="img/frase.png" style="width: 200px; height: 200px; border-radius: 50%; margin-top: -1px;">
+                         </div>
+                          <form action="validar2.php" method="POST">
+                            <div class="row g-3">
+                              <div class="col">
+                                <input type="text" class="form-control"  placeholder="Nombre" aria-label="Nombre" name="txtNombre" required>
+                              </div>
+                              <div class="col">
+                                <input type="text" class="form-control"  placeholder="Apellido Paterno" aria-label="Apellido Paterno" name="txtAp" required>
+                              </div>
+                              <div class="col">
+                                <input type="text" class="form-control"  placeholder="Apellido Materno" aria-label="Apellido Materno" name="txtAm" required>
+                              </div>
+                              <div class="input-group">
+                                <input type="text" class="form-control"  placeholder="Numero de Empleado" name="txtNumEm" required>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col">
+                                  <input type="text" class="form-control"  placeholder="Tipo de Empleado" aria-label="tipoEmpleado" name="txtTipEm" required>
+                                </div>
+                                <div class="col">
+                                  <input type="text" class="form-control"  placeholder="Fecha de Nacimiento" aria-label="fechaN" name="txtFechaN" required>
+                                </div>
+                                <div class="col">
+                                  <input type="text" class="form-control"  placeholder="Area" aria-label="area" name="txtArea" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                  
+                              </div>
+                            
+                            <div class="row">
+                              <div class="col">
+                                <input type="email" class="form-control"  placeholder="Correo" aria-label="Correo" name="txtCorreo" required>
+                              </div>
+                              <div class="col">
+                                <input type="password" class="form-control"  placeholder="Contraseña" aria-label="Contraseña" name="txtPws" required>
+                              </div>
+                              <input type="hidden" class="form-control"  aria-label="tipoUsuario" name="txtTpu" value="1" >
+                            </div>
+                            <div class="form-group mb-1">
+                              <button type="submit" style="width: 230px; " name="registrar">
+                                  <p style="font-size: 23px; color: aliceblue;"> Guardar Usuario </p>
+                              </button>
+                          </div>
+                            </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    
+</body>
+</html>
