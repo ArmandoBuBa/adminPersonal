@@ -51,7 +51,7 @@
                         <div class="mx-auto" style=" width: 230px; height: 230px; border-radius: 50%; margin-top: -150px;">
                             <img src="img/frase.png" style="width: 200px; height: 200px; border-radius: 50%; margin-top: -1px;">
                          </div>
-                          <form action="validar2.php" method="POST">
+                          <form action="validacion2.php" method="POST">
                             <div class="row g-3">
                               <div class="col">
                                 <input type="text" class="form-control"  placeholder="Nombre" aria-label="Nombre" name="txtNombre" required>
@@ -63,14 +63,20 @@
                                 <input type="text" class="form-control"  placeholder="Apellido Materno" aria-label="Apellido Materno" name="txtAm" required>
                               </div>
                               <div class="input-group">
-                                <input type="text" class="form-control"  placeholder="Numero de Empleado" name="txtNumEm" required>
+                                <input type="number" class="form-control"  placeholder="Numero Empleado" aria-label="Nombre" name="txtEmpleado" required>
                             </div>
                             <div class="row g-3">
                                 <div class="col">
-                                  <input type="text" class="form-control"  placeholder="Tipo de Empleado" aria-label="tipoEmpleado" name="txtTipEm" required>
+                                  <select class="form-select" aria-label="Default select example" name="txtTipEm" required >
+                                    <option disabled >Tipo de Empleado</option desable>
+                                    <option value="AD">AD</option>
+                                    <option value="TA">TA</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PTC">PTC</option>
+                                  </select>
                                 </div>
                                 <div class="col">
-                                  <input type="text" class="form-control"  placeholder="Fecha de Nacimiento" aria-label="fechaN" name="txtFechaN" required>
+                                  <input type="date" class="form-control"  placeholder="DD/MM/AA" aria-label="fechaN" name="txtFechaN" required>
                                 </div>
                                 <div class="col">
                                   <input type="text" class="form-control"  placeholder="Area" aria-label="area" name="txtArea" required>

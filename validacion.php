@@ -28,7 +28,7 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
 
  if (isset($txtCorreo) && !empty($txtCorreo) && isset($txtPws) && !empty($txtPws)){
     $con = new SQLite3("adminP.db") or die("problemas para conectar");
-    $cs = $con -> query("SELECT * FROM personal WHERE correo='$txtCorreo'");
+    $cs = $con -> query("SELECT * FROM personal1 WHERE correo='$txtCorreo'");
 
 
 
@@ -79,7 +79,7 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                 buttons:"Continuar"
               }).then(respuesta=>{
                if(respuesta){
-                  window.location="index.php"
+                  window.location="permiso.php"
                }
            })
             </script>
@@ -111,13 +111,13 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
           <body>
             <script>
               swal({
-                title:"Bienvenido",
+                title:"Bienvenido Administrador",
                 text : "'.$nombre.' '.$apellidoP.' '.$apellidoM.'",
                 icon: "success",
                 buttons:"Continuar"
               }).then(respuesta=>{
                if(respuesta){
-                  window.location="index.php"
+                  window.location="admin.php"
                }
            })
             </script>
