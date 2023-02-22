@@ -79,7 +79,7 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                 buttons:"Continuar"
               }).then(respuesta=>{
                if(respuesta){
-                  window.location="permiso.php"
+                  window.location="navegacion.php"
                }
            })
             </script>
