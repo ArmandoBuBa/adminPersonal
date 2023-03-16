@@ -76,12 +76,15 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-md-5 mx-auto" style="margin-top: 230px; margin-left: 1500px;">
-               <div class="card" style="background-color: withe ; border-color: black; border-radius: 5%;">
+            <div class="col-md-9 mx-auto" style="margin-top: 230px;">
+               <div class="card" style="background-color: withe ; border-color: black; width: 1015px;">
                   <div class="card-body text-center"> 
-                     <div class="mx-auto" style=" width: 230px; height: 230px; border-radius: 50%; margin-top: -150px;">
-                         <img src="img/frase.png" style="width: 200px; height: 200px; border-radius: 50%; margin-top: -1px;">
-                      </div>
+                    <div class="container" style="display: flex; justify-content: center;">
+                        <img src="img/gobierno.png" style="width: 250px; height: 70px; margin-right: 100px;"> 
+                        <img src="img/utfvf.png" style="width: 200px; height: 80px; margin-left: 100px;">
+                    </div>
+                    <h1>Solicitud de permiso</h1>
+                     
                      
                       <?php
                       $con = new SQLite3("adminP.db") or die("problemas para conectar");
@@ -95,17 +98,67 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                         $correo = $resul['correo'];
                         $cont = $resul['cont'];
                         $tipoUsuario = $resul['tipoUsuario'];
+                        $empleado = $resul['empleado'];
                         $area = $resul['area'];
                         $tipoEmpleado = $resul['tipoEmpleado'];
                         $fechaN = $resul['fechaN'];
                     
                 
                       echo' 
-                      <h2>'.$nombre.' '.$apellidoP.' '.$apellidoM.'</h1>
+                      <form action="validacionP.php" method="POST">
+                      <div class="container" style="display: flex; justify-content: center;">
+                        <h5>Nombre del empleado : '.$nombre.' '.$apellidoP.' '.$apellidoM.'</h4>
+                          <input type="hidden" class="form-control"  aria-label="nombre" name="txtSN" value="'.$nombre.' '.$apellidoP.' '.$apellidoM.'" >
+                        <h5 style="margin-left: 50px;">No. De Empleado: '.$empleado.'  </h4>
+                          <input type="hidden" class="form-control"  aria-label="nombre" name="txtSNum" value="'.$empleado.'" >
+                      </div>
+                      <div class="container" style="display: flex; justify-content: center;">
+                        <h5>Area de adscripción : '.$area.'</h4>
+                          <input type="hidden" class="form-control"  aria-label="nombre" name="txtSArea" value="'.$area.'" >
+                        <h5 style="margin-left: 50px;">Puesto : '.$tipoEmpleado.'  </h4>
+                          <input type="hidden" class="form-control"  aria-label="nombre" name="txtSTi" value="'.$tipoEmpleado.'" >
+                      </div>
+                      <div class="container" style="display: flex; justify-content: center;">
+                          <div style="margin-right: 60px;">
+                            <p>Tipo de Permiso</p>
+                            <div class="col">
+                              <select class="form-select" aria-label="Default select example" name="txtTiAur" required >
+                                <option disabled >Tipo de Permiso</option desable>
+                                <option value="Autorizacion de Salida">Autorizacion de Salida</option>
+                                <option value="Autorizacion de Entrada">Autorizacion de Entrada</option>
+                                <option value="Ambas Autorizaciones">Ambas Autorizaciones</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div style="margin-left: -50px;">
+                            <p>Apartir de (Hrs)</p>
+                            <input type="time"  class="form-control" placeholder="hora" aria-label="area" name="txtT1" >
+                            <br>
+                            <input type="time"  class="form-control" placeholder="hora" aria-label="area" name="txtT3" >
+                          </div>
+                          <div style="margin-left: 10px;">
+                            <p>Hasta (Hrs)</p>
+                            <input type="time"  class="form-control" placeholder="hora2" aria-label="area" name="txtT2" >
+                            <br>
+                            <input type="time"  class="form-control" placeholder="hora2" aria-label="area" name="txtT4" >
+                          </div>
+                          <div style="margin-left: 10px;">
+                            <p >fecha</p>
+                            <input type="date"  class="form-control" placeholder="fecha1" aria-label="fecha1" name="txtFecha1" >
+                            <br>
+                            <input type="date"  class="form-control" placeholder="fecha2" aria-label="area" name="txtFecha2" >
+                          </div>
+                          <div style="margin-left: 10px;">
+                            <p>observaciones</p>
+                            <input type="text"   class="form-control" placeholder="observaciones" aria-label="area" name="txtOb" style ="height: 100px;" >
+                            <br>
+                            <button type="submit" style="width: 230px; " name="registrar">
+                              <p style="font-size: 23px; color: aliceblue;"> Solicitar </p>
+                          </button>
+                          
+                          </div>
+                       </div>
                        
-                      <h1 style="color:#3E9647">Selecione su Tramite</h1>
-                      <form action="permiso1.php">
-                        <button style="width: 250px;"><p style="color: aliceblue; font-size: 25px;">Solicitud de permiso</p></button>
                       </form>
                       ';
                    }  

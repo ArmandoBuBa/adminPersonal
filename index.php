@@ -48,8 +48,8 @@ $hiperNum = isset($_SESSION['txtNumEm']) ? $_SESSION['txtNumEm'] : '';
           <div class="col-md-5 mx-auto" style="margin-top: 230px;">
              <div class="card" style="background-color: withe ; border-color: black; border-radius: 5%;">
                 <div class="card-body text-center"> 
-                   <div class="mx-auto" style=" width: 230px; height: 230px; border-radius: 50%; margin-top: -150px;">
-                       <img src="img/frase.png" style="width: 200px; height: 200px; border-radius: 50%; margin-top: -1px;">
+                   <div class="mx-auto" style=" width: 230px; height: 210px; border-radius: 50%; margin-top: -150px;">
+                       <img src="img/utfvf.png" style="width: 200px; height: 200px;  margin-top: -1px;">
                     </div>
                    
                     <form action="validacion.php" method="POST" class="my-3">
