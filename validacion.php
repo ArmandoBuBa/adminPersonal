@@ -117,7 +117,7 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                 buttons:"Continuar"
               }).then(respuesta=>{
                if(respuesta){
-                  window.location="admin.php"
+                  window.location="navegacionA.php"
                }
            })
             </script>
