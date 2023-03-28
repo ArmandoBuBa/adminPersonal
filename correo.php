@@ -111,10 +111,10 @@ function generatePassword($length)
         
             $mail->isSMTP();
         
-            $mail->Host       = 'smtp-mail.outlook.com';  // host de correos
+            $mail->Host       = '';  // host de correos
             $mail->SMTPAuth   = true;                                   // Activa la autenticación del Usuario
-            $mail->Username   = 'AP19302062@outlook.com';                     // SMTP Usuario
-            $mail->Password   = 'Sasori302';                               // SMTP Password
+            $mail->Username   = '';                     // SMTP Usuario
+            $mail->Password   = '';                               // SMTP Password
             $mail->SMTPSecure = 'tls';                                  // Tipo de protocolo de envio de correo
             $mail->Port       = 587;                                    // TCP Puerto Servidor
         
@@ -122,7 +122,7 @@ function generatePassword($length)
             $mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );
         
             //Salida correo
-            $mail->setFrom('AP19302062@outlook.com', 'Administracion de Personal');
+            $mail->setFrom('', 'Administracion de Personal');
             $mail->addAddress($correo);     //Correo de Salida
         
             // Contenido
