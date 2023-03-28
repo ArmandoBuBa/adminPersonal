@@ -118,7 +118,8 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                             <input type="text" name="buscador" class="form-control" placeholder="Busqueda personalizada" onKeypress="validacion()">
                             <button class="btn btn-success" style="background-color: #3E9647; border: solid 1px gray; width: 140px;">Buscar</button>
                         </div>
-                    </form>
+                     </form>
+                     
                       ';
                    }  
                  $con -> close();

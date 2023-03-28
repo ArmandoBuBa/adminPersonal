@@ -34,9 +34,9 @@ $txtNid2 = isset($_POST['txtNid2']) ? $_POST['txtNid2'] : '';
           <body>
             <script>
               swal({
-                title:"Solicitud Aprobada",
+                title:"Solicitud Rechazada",
                 text : "",
-                icon: "success",
+                icon: "warning",
                 buttons:"Continuar"
               }).then(respuesta=>{
                if(respuesta){

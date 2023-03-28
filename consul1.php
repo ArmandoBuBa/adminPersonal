@@ -66,8 +66,14 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
             <div class ="container" style="display: flex; ">
                 <h1 class= " p-3 rounded" style="font-size: 300%; margin-left: 100px; color: #3E9647; "> Solicitudes  Aprobadas</h1>
                 <img src="img/edomexu.png" style="margin-left: 100px;">
+                
             </div>
            
+            <form action="generarexcel.php">
+                 <button style="width: 250px; background-color: #0C1735;"><p style="color: aliceblue; font-size: 25px; ">Generar Excel</p></button>
+            </form>
+            <br>
+            
           <table class= "table text-center" style="background-color: white; border: solid 1px black;">
           <thead class= " text-white" style="background-color: #3E9647;">
                 <tr>
