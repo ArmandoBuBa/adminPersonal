@@ -95,14 +95,21 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                         $correo = $resul['correo'];
                         $cont = $resul['cont'];
                         $tipoUsuario = $resul['tipoUsuario'];
+                        $empleado = $resul['empleado'];
                         $area = $resul['area'];
                         $tipoEmpleado = $resul['tipoEmpleado'];
                         $fechaN = $resul['fechaN'];
                     
+                    
                 
                       echo' 
+                      <form action="misolicitud.php" method="POST">
+                        <input type="hidden" class="form-control"  aria-label="nombre" name="txtNid3" value="'.$empleado.'" >
+                        <button  type="submit" style="width: 200px; margin-left: 5px; background-color: #0C1735; border-color: #3E9647;"><p style="color: aliceblue; font-size: 25px;">Mis Solicitudes</p></button>
+                      </form>  
+                      <br>
                       <h2>'.$nombre.' '.$apellidoP.' '.$apellidoM.'</h1>
-                       
+                        
                       <h1 style="color:#3E9647">Selecione su Tramite</h1>
                       <form action="permiso1.php">
                         <button style="width: 250px;"><p style="color: aliceblue; font-size: 25px;">Solicitud de permiso</p></button>

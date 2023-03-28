@@ -64,11 +64,10 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
         <div class="row">
         <div class="col-md-8 mx-auto my-5">
             <div class ="container" style="display: flex; ">
-                <h1 class= " p-3 rounded" style="font-size: 300%; margin-left: 100px; color: #3E9647; "> Solicitudes  </h1>
+                <h1 class= " p-3 rounded" style="font-size: 300%; margin-left: 100px; color: #3E9647; "> Solicitudes  Aprobadas</h1>
                 <img src="img/edomexu.png" style="margin-left: 100px;">
             </div>
-       
-        
+           
           <table class= "table text-center" style="background-color: white; border: solid 1px black;">
           <thead class= " text-white" style="background-color: #3E9647;">
                 <tr>
@@ -106,8 +105,9 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                 <th>
                     observaciones
                 </th>
+
                 <th>
-                    Aprobar/Rechazar
+                    Folio
                 </th>
     
                  </tr>
@@ -115,7 +115,7 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                 <tbody>
                 <?php
                 $con = new SQLite3("adminP.db") or die("problemas para conectar");
-                $cs = $con -> query("SELECT * FROM solicitud1 WHERE folio == 0");
+                $cs = $con -> query("SELECT * FROM solicitud1 WHERE folio >= 2");
             
                 while($resul = $cs -> fetchArray()){
                   $id = $resul['id'];
@@ -128,6 +128,8 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                   $hora2 = $resul['hora2'];
                   $fecha1 = $resul['fecha1'];
                   $observaciones = $resul['observaciones'];
+                  $folio = $resul['folio'];
+              
               
                       echo' 
                       <tr> 
@@ -141,19 +143,9 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                        <td class="align-middle"> '.$hora2.'</td>
                        <td class="align-middle"> '.$fecha1.'</td>
                        <td class="align-middle"> '.$observaciones.'</td>
-                       <td class="align-middle"> 
+                       <td class="align-middle"> '.$folio.'</td>
                         
-                            <div class ="container" style="display: flex; ">
-                              <form action="aprobar.php" method="POST">
-                                <input type="hidden" class="form-control"  aria-label="nombre" name="txtNid" value="'.$id.'" >
-                                <input type="hidden" class="form-control" type="text" name="chars" value="8" maxlength="1">
-                                <button type="submit"style="width: 95px;"><p style="color: aliceblue; font-size: 20px;">Aprobar</p></button>
-                              </form>  
-                              <form action="rechazar.php" method="POST">
-                                <input type="hidden" class="form-control"  aria-label="nombre" name="txtNid2" value="'.$id.'" >
-                                <button  type="submit" style="width: 95px; margin-left: 5px;"><p style="color: aliceblue; font-size: 20px;">Rechazar</p></button>
-                              </form>  
-                            </div>
+                            
                        
                        </td>
                        </td>

@@ -108,6 +108,17 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                       <form action="consul.php">
                         <button style="width: 250px;"><p style="color: aliceblue; font-size: 25px;">Consultar Solicitudes</p></button>
                       </form>
+                      <br>
+                      <form action="consul1.php">
+                        <button style="width: 250px;"><p style="color: aliceblue; font-size: 25px;">Solicitudes Aprobadas</p></button>
+                      </form>
+                    
+                      <form action="busqueda.php" method="POST" class="my-5">
+                        <div class="input-group mb-1 animate__animated animate__fadeInLeft">
+                            <input type="text" name="buscador" class="form-control" placeholder="Busqueda personalizada" onKeypress="validacion()">
+                            <button class="btn btn-success" style="background-color: #3E9647; border: solid 1px gray; width: 140px;">Buscar</button>
+                        </div>
+                    </form>
                       ';
                    }  
                  $con -> close();

@@ -1,4 +1,4 @@
-<?php
+?php
 
 error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
@@ -8,6 +8,7 @@ session_start();
 
 //variable hiperglobal
 $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
+
 
 ?>
 <!DOCTYPE html>
@@ -34,7 +35,7 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
     <header>
         <nav class="navbar navbar-light  fixed-top" style="background-color: #3E9647;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="navegacionA.php" style=" font-family: 'Jaldi'; color: white;  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-size: 23px; ">Administracion de Personal</a>
+                <a class="navbar-brand" href="navegacion.php" style=" font-family: 'Jaldi'; color: white;  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-size: 23px; ">Administracion de Personal</a>
              
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="background-color: white">
                 <p style="margin-top: 5px; color: #3E9647;">Menu</p>
@@ -47,11 +48,10 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                 
                 <div class="offcanvas-body" style="background-color: white;">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    
                     <br>
                     <li class="nav-item">
                         <div class="card" style="background-color: #3E9647">
-                            <a class="nav-link active" aria-current="page" href="navegacionA.php"><p style="color: aliceblue; text-align: center; font-size: 40px;">Herramientas</p></a>
+                            <a class="nav-link active" aria-current="page" href="navegacion.php"><p style="color: aliceblue; text-align: center; font-size: 40px;">Seleccionar Tramite</p></a>
                         </div>
                     </li>
                   </ul>
@@ -64,7 +64,7 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
         <div class="row">
         <div class="col-md-8 mx-auto my-5">
             <div class ="container" style="display: flex; ">
-                <h1 class= " p-3 rounded" style="font-size: 300%; margin-left: 100px; color: #3E9647; "> Solicitudes  </h1>
+                <h1 class= " p-3 rounded" style="font-size: 300%; margin-left: 100px; color: #3E9647; "> Mis Solicitudes  </h1>
                 <img src="img/edomexu.png" style="margin-left: 100px;">
             </div>
        
@@ -75,20 +75,13 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                 <th>
                        Id
                  </th>
+                
                    <th>
                         Nombre
                  </th>
     
                  <th>
                       Numero de Empleado
-                 </th>
-    
-                 <th>
-                     Area
-                 </th>
-    
-                 <th>
-                       Puesto
                  </th>
     
                  <th>
@@ -107,15 +100,18 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                     observaciones
                 </th>
                 <th>
-                    Aprobar/Rechazar
+                    Estado 
                 </th>
     
                  </tr>
          </thead>
                 <tbody>
                 <?php
+                
+                $txtNid3 = isset($_POST['txtNid3']) ? $_POST['txtNid3'] : '';
+
                 $con = new SQLite3("adminP.db") or die("problemas para conectar");
-                $cs = $con -> query("SELECT * FROM solicitud1 WHERE folio == 0");
+                $cs = $con -> query("SELECT * FROM solicitud1 Where numEmpleado = '$txtNid3'  ");
             
                 while($resul = $cs -> fetchArray()){
                   $id = $resul['id'];
@@ -128,36 +124,61 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                   $hora2 = $resul['hora2'];
                   $fecha1 = $resul['fecha1'];
                   $observaciones = $resul['observaciones'];
+                  $folio = $resul['folio'];
+
+                 if($folio == 1){
+                    echo' 
+                    <tr style="background-color: #FC5B5B;"> 
+                     <td class="align-middle"> '.$id.'</td>
+                     <td class="align-middle"> '.$nombre.'</td>
+                     <td class="align-middle"> '.$numEmpleado.'</td>
+                     
+                     <td class="align-middle"> '.$tipoPermiso.'</td>
+                     <td class="align-middle"> '.$hora1.'</td>
+                     <td class="align-middle"> '.$hora2.'</td>
+                     <td class="align-middle"> '.$fecha1.'</td>
+                     <td class="align-middle"> '.$observaciones.'</td>
+                     <td class="align-middle">       Rechazado              </td>
+                     </td>
+                    </tr>';
+                 }else{
+                    if($folio >= 2){
+                        echo' 
+                        <tr style="background-color: #72F177;"> 
+                         <td class="align-middle"> '.$id.'</td>
+                         <td class="align-middle"> '.$nombre.'</td>
+                         <td class="align-middle"> '.$numEmpleado.'</td>
+                         
+                         <td class="align-middle"> '.$tipoPermiso.'</td>
+                         <td class="align-middle"> '.$hora1.'</td>
+                         <td class="align-middle"> '.$hora2.'</td>
+                         <td class="align-middle"> '.$fecha1.'</td>
+                         <td class="align-middle"> '.$observaciones.'</td>
+                         <td class="align-middle">  Aprobado </td>
+                         </td>
+                        </tr>';
+
+                    }else{
+                        echo' 
+                        <tr style="background-color: #FCA85B;"> 
+                        <td class="align-middle"> '.$id.'</td>
+                         <td class="align-middle"> '.$nombre.'</td>
+                         <td class="align-middle"> '.$numEmpleado.'</td>
+                         
+                         <td class="align-middle"> '.$tipoPermiso.'</td>
+                         <td class="align-middle"> '.$hora1.'</td>
+                         <td class="align-middle"> '.$hora2.'</td>
+                         <td class="align-middle"> '.$fecha1.'</td>
+                         <td class="align-middle"> '.$observaciones.'</td>
+                         <td class="align-middle">  En Proceso </td>
+                         </td>
+                        </tr>';
+                    }
+                    
+
+                 }
               
-                      echo' 
-                      <tr> 
-                       <td class="align-middle"> '.$id.' </td>
-                       <td class="align-middle"> '.$nombre.'</td>
-                       <td class="align-middle"> '.$numEmpleado.'</td>
-                       <td class="align-middle"> '.$area.'</td>
-                       <td class="align-middle"> '.$puesto.'</td>
-                       <td class="align-middle"> '.$tipoPermiso.'</td>
-                       <td class="align-middle"> '.$hora1.'</td>
-                       <td class="align-middle"> '.$hora2.'</td>
-                       <td class="align-middle"> '.$fecha1.'</td>
-                       <td class="align-middle"> '.$observaciones.'</td>
-                       <td class="align-middle"> 
-                        
-                            <div class ="container" style="display: flex; ">
-                              <form action="aprobar.php" method="POST">
-                                <input type="hidden" class="form-control"  aria-label="nombre" name="txtNid" value="'.$id.'" >
-                                <input type="hidden" class="form-control" type="text" name="chars" value="8" maxlength="1">
-                                <button type="submit"style="width: 95px;"><p style="color: aliceblue; font-size: 20px;">Aprobar</p></button>
-                              </form>  
-                              <form action="rechazar.php" method="POST">
-                                <input type="hidden" class="form-control"  aria-label="nombre" name="txtNid2" value="'.$id.'" >
-                                <button  type="submit" style="width: 95px; margin-left: 5px;"><p style="color: aliceblue; font-size: 20px;">Rechazar</p></button>
-                              </form>  
-                            </div>
-                       
-                       </td>
-                       </td>
-                      </tr>';
+                      
                    }  
                  $con -> close();
                 ?>

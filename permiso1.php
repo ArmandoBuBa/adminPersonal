@@ -34,7 +34,7 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
     <header>
         <nav class="navbar navbar-light  fixed-top" style="background-color: #3E9647;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.php" style=" font-family: 'Jaldi'; color: white;  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-size: 23px; ">Administracion de Personal</a>
+                <a class="navbar-brand" href="navegacion.php" style=" font-family: 'Jaldi'; color: white;  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-size: 23px; ">Administracion de Personal</a>
              
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="background-color: white">
                 <p style="margin-top: 5px; color: #3E9647;">Menu</p>
@@ -47,21 +47,6 @@ $hiperCorreo = isset($_SESSION['txtCorreo']) ? $_SESSION['txtCorreo'] : '';
                 
                 <div class="offcanvas-body" style="background-color: white;">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <?php
-                    if ($hiperCorreo === '') {
-                    echo '
-                     <a class="nav-link" href="index.php" style="color: white;">iniciar sesion</a>
-                     ';
-                    }else{
-                        echo '
-                        <li class="nav-item">
-                            <div class="card" style="background-color: #3E9647">
-                                <a class="nav-link active" aria-current="page" href="index.php"><p style="color: aliceblue; text-align: center; font-size: 40px;">Cerrar Sesion</p></a>
-                            </div>
-                        </li>
-                        ';
-                    }
-                    ?>
                     <br>
                     <li class="nav-item">
                         <div class="card" style="background-color: #3E9647">

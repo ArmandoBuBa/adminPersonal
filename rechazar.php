@@ -3,18 +3,15 @@
 error_reporting(E_ALL ^ E_DEPRECATED);
 header("Content-Type: text/html; Charset=UTF-8");
 
-//alimentamos el generador de aleatorios
-mt_srand (time());
-//generamos un número aleatorio
-$numero_aleatorio = mt_rand(2,99999);
 
-$txtNid = isset($_POST['txtNid']) ? $_POST['txtNid'] : '';
+
+$txtNid2 = isset($_POST['txtNid2']) ? $_POST['txtNid2'] : '';
 
 
       
          $con = new SQLite3("adminP.db") or die("problemas para conectar");
          
-            $cs = $con -> query("UPDATE solicitud1 SET folio=$numero_aleatorio where id = $txtNid");
+            $cs = $con -> query("UPDATE solicitud1 SET folio= '1' where id = $txtNid2");
             echo '
             <!DOCTYPE html>
           <html lang="en">
